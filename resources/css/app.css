@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.container{
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+button:disabled {
+    background-color: rgb(187, 187, 187);
+}
+button:disabled:hover {
+    background-color: rgb(132, 132, 132); 
+}
