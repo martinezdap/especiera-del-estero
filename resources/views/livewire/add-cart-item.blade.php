@@ -86,7 +86,9 @@
                                                         class="mt-4 text-gray-700 px-3 flex justify-between bg-gray-200 py-2 rounded-md sm:w-full lg:w-3/4 mx-auto items-center">
                                                         <x-button-espe x-bind:disabled="{{ $weight }} <= 0.5"
                                                             wire:target="decrement"
-                                                            wire:click="decrement">-</x-button-espe>
+                                                            wire:click="decrement">
+                                                            <i class="fa-solid fa-minus text-white text-md"></i>
+                                                        </x-button-espe>
                                                         <span>
                                                             @if (strpos($weight, '.') !== false)
                                                                 {{ number_format($weight, 3) }} kg
@@ -96,7 +98,9 @@
                                                         </span>
                                                         <x-button-espe x-bind:disabled="{{ $weight }} >= 20"
                                                             wire:target="increment"
-                                                            wire:click="increment">+</x-button-espe>
+                                                            wire:click="increment">
+                                                            <i class="fa-solid fa-plus text-white text-md"></i>
+                                                        </x-button-espe>
                                                     </div>
                                                 </div>
                                             </x-slot>

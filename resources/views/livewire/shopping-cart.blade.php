@@ -1,6 +1,7 @@
 <div class="py-16 container">
     @if (Cart::count())
-        <div class="bg-white rounded-lg shadow-md py-4 my-6">
+        <form class="bg-white rounded-lg shadow-md py-4 my-6">
+            @csrf
             <div class="px-4 pb-4 pt-2">
                 <x-input type="text" required wire:model.live="name" name="name" placeholder="Nombre" class="w-full">
                 </x-input>
@@ -17,7 +18,7 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
-        </div>
+        </form>
     @endif
 
     <div class="bg-white rounded-lg shadow-md px-4 py-6 my-6" style="z-index: 10">

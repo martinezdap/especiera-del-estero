@@ -15,8 +15,7 @@ class ShoppingCart extends Component
     }
 
     public $name, $adress, $weight, $open = false;
-    public $valor = 1;
-    public $productRowIdToDelete;
+    public $productRowIdToDelete, $confirm = false;
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -26,6 +25,19 @@ class ShoppingCart extends Component
     public function confirmarPedido()
     {
         $this->validate($this->rules);
+
+        // Obtén el contenido actual del carrito
+        $cartContent = Cart::content();
+
+        // Genera un array con los datos del pedido
+        $pedidoData = [
+            'nombre' => $this->name,
+            'direccion' => $this->adress,
+            'resumen' => $cartContent,
+        ];
+
+        // Pasa los datos al frontend mediante una variable de Livewire
+        $this->dispatch('enviarMensaje', $pedidoData);
     }
 
     public function deleteItem()
