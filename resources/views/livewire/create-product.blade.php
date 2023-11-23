@@ -10,7 +10,7 @@
                 placeholder="Nombre" 
                 class="w-full">
             </x-input>
-            @error('name') <span class="error">{{ $message }}</span> @enderror
+            @error('name') <span class="error text-red-500">{{ $message }}</span> @enderror
         </div>
 
         <div class="mt-4">
@@ -20,9 +20,18 @@
                 placeholder="Slug" 
                 class="w-full bg-gray-200" disabled>
             </x-input>
-            @error('slug') <span class="error">{{ $message }}</span> @enderror
+            @error('slug') <span class="error text-red-500">{{ $message }}</span> @enderror
         </div>
-
+        
+        <div class="mt-4">
+            <label for="file" class="block text-sm font-medium text-gray-700">Selecciona un archivo</label>
+            <x-input type="file" wire:model.lazy="file" name="file" id="file" class="w-full py-2 px-3 border rounded-lg border-gray-300 bg-gray-100">
+            </x-input>
+            @if ($errors->has('file'))
+                <span class="error text-red-500">{{ $errors->first('file') }}</span>
+            @endif
+        </div>
+        
         <div class="mt-4">
             <x-input type="number" 
                 wire:model.live="price"
@@ -31,18 +40,8 @@
                 placeholder="Precio" 
                 class="w-full">
             </x-input>
-            @error('price') <span class="error">{{ $message }}</span> @enderror
+            @error('price') <span class="error text-red-500">{{ $message }}</span> @enderror
         </div>
-        
-        <div class="mt-4">
-            <label for="file" class="block text-sm font-medium text-gray-700">Selecciona un archivo</label>
-            <x-input type="file" wire:model.lazy="file" name="file" id="file" class="w-full py-2 px-3 border rounded-lg border-gray-300 bg-gray-100">
-            </x-input>
-            @if ($errors->has('file'))
-                <span class="error">{{ $errors->first('file') }}</span>
-            @endif
-        </div>
-        
 
         <div class="text-center mt-4">
             <x-button-espe 

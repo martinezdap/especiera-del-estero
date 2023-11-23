@@ -24,7 +24,7 @@
         @csrf
         @method('PUT')
 
-        <div class="mb-4 flex justify-center relative">
+        <div class="mb-2 flex justify-center relative">
             <div class="relative group">
                 @if ($file)
                     <img class="h-24 w-24 rounded-full object-cover border border-gray-300 transition-opacity duration-500 ease-in-out group-hover:opacity-75"
@@ -45,7 +45,11 @@
             </div>
         </div>
 
-        <div>
+        <div class="text-center">
+            <div class="sm:block lg:hidden">
+                <p class="mb-2 text-sm text-ocreEspeciera">Click en la imagen para actualizar.</p>
+            </div>
+            <div class="sm:hidden lg:block pt-2"></div>
             <x-input type="text" wire:model.live="name" name="name" placeholder="Nombre" class="w-full">
             </x-input>
             @error('name')

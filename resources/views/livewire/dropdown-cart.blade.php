@@ -1,5 +1,5 @@
 <div style="z-index: 900">
-    <x-dropdown width="96">
+    <x-dropdown width="72">
 
         <x-slot name="trigger">
             <x-cart />

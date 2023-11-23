@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
-use App\Livewire\AddCartItem;
 use App\Livewire\ShoppingCart;
 use Illuminate\Support\Facades\Route;
 

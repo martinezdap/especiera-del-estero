@@ -5,10 +5,10 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('welcome') }}">
+                    <a href="{{ auth()->check() ? route('product.index') : route('welcome') }}">
                         <img class="w-12" src="{{ asset('/img/logo-especiera.png') }}" alt="Logo-EspecieraSgo">
                     </a>
-                </div>
+                </div>                
             </div>
 
             <div class="flex justify-center items-center">
@@ -58,7 +58,7 @@
                         <x-dropdown>
                             <x-slot name="trigger">
                                 <div class="text-center items-center">
-                                    <i class="fa-solid fa-user text-greenEspeciera text-3xl cursor-pointer"></i>
+                                    <i class="fa-solid fa-circle-question text-greenEspeciera text-3xl cursor-pointer"></i>
                                 </div>
                             </x-slot>
 
@@ -71,14 +71,17 @@
                                     ¿Eres administrador?
                                 </x-dropdown-link>
 
+                                <x-dropdown-link href="https://api.whatsapp.com/send?phone=5493855983249" target="_blank">
+                                    Envíanos un mensaje
+                                </x-dropdown-link>                                
+
                                 <div class="border-t border-gray-200"></div>
                             </x-slot>
                         </x-dropdown>
-
                     @endauth
                 </div>
 
-                <div class="flex items-center space-x-4 ml-6">
+                <div class="flex items-center space-x-4 ml-6 @if(request()->routeIs('shopping-cart')) hidden @endif">
                     @livewire('dropdown-cart')
                 </div>
             </div>
